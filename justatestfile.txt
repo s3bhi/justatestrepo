@@ -1,0 +1,1 @@
+echo "yo watashi wa subhi desu"
