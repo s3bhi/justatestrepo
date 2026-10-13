@@ -13,14 +13,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the Java project...'
-                bat 'mvn clean compile'
+                bat '"C:\\Users\\Subhi Jose\\Downloads\\apache-maven-3.9.16-bin\\apache-maven-3.9.16\\bin\\mvn.cmd" clean compile'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running test cases...'
-                bat 'mvn test'
+                bat '"C:\\Users\\Subhi Jose\\Downloads\\apache-maven-3.9.16-bin\\apache-maven-3.9.16\\bin\\mvn.cmd" test'
             }
         }
     }
