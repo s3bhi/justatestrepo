@@ -1,0 +1,41 @@
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out source code from GitHub...'
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the Java project...'
+                bat 'mvn clean compile'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running test cases...'
+                bat 'mvn test'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'SUCCESS: Build and tests completed!'
+        }
+
+        failure {
+            echo 'FAILURE: Build or tests failed!'
+        }
+
+        always {
+            echo 'Jenkins pipeline execution finished.'
+        }
+    }
+}
